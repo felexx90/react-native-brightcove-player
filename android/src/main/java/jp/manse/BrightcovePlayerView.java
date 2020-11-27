@@ -1,7 +1,7 @@
 package jp.manse;
 
 import android.graphics.Color;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.widget.RelativeLayout;
@@ -238,6 +238,12 @@ public class BrightcovePlayerView extends RelativeLayout implements LifecycleEve
 
     public void seekTo(int time) {
         this.playerVideoView.seekTo(time);
+    }
+
+    public void play(){
+        if(this.playerVideoView != null) {
+            this.playerVideoView.start();
+        }
     }
 
     //We need to stop the player to avoid a potential memory leak.

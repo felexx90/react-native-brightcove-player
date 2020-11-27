@@ -110,6 +110,21 @@ BrightcovePlayer.prototype.seekTo = Platform.select({
   }
 });
 
+BrightcovePlayer.prototype.play = Platform.select({
+  ios: function() {
+    NativeModules.BrightcovePlayerManager.play(
+      ReactNative.findNodeHandle(this)
+    );
+  },
+  android: function() {
+    UIManager.dispatchViewManagerCommand(
+      ReactNative.findNodeHandle(this._root),
+      UIManager.BrightcovePlayer.Commands.play,
+      []
+    );
+  }
+});
+
 BrightcovePlayer.prototype.stopPlayback = Platform.select({
   ios: function () {
     //no method for ios

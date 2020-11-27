@@ -1,6 +1,6 @@
 package jp.manse;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.facebook.infer.annotation.Assertions;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -18,6 +18,7 @@ public class BrightcovePlayerManager extends SimpleViewManager<BrightcovePlayerV
     public static final String REACT_CLASS = "BrightcovePlayer";
     public static final int COMMAND_SEEK_TO = 1;
     public static final int COMMAND_STOP_PLAYBACK = 2;
+    public static final int COMMAND_PLAY= 3;
     public static final String EVENT_READY = "ready";
     public static final String EVENT_PLAY = "play";
     public static final String EVENT_PAUSE = "pause";
@@ -111,7 +112,9 @@ public class BrightcovePlayerManager extends SimpleViewManager<BrightcovePlayerV
                 "seekTo",
                 COMMAND_SEEK_TO,
                 "stopPlayback",
-                COMMAND_STOP_PLAYBACK
+                COMMAND_STOP_PLAYBACK,
+                "play",
+                COMMAND_PLAY
         );
     }
 
@@ -126,6 +129,10 @@ public class BrightcovePlayerManager extends SimpleViewManager<BrightcovePlayerV
             }
             case  COMMAND_STOP_PLAYBACK:{
                 view.stopPlayback();
+                return;
+            }
+            case COMMAND_PLAY:{
+                view.play();
                 return;
             }
         }

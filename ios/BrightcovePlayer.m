@@ -198,6 +198,10 @@
     }];
 }
 
+- (void)play {
+    [_playbackController play];
+}
+
 - (void)playbackController:(id<BCOVPlaybackController>)controller playbackSession:(id<BCOVPlaybackSession>)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent {
     if (lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventPlaybackBufferEmpty || lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventFail ||
         lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventError ||
