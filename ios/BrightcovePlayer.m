@@ -83,12 +83,16 @@
             [self.playbackService findVideoWithVideoID:self.videoId parameters:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) {
                 if (video) {
                     [self.playbackController setVideos: @[ video ]];
+                } else {
+                    self.onError(@{});
                 }
             }];
         } else if (self.referenceId) {
             [self.playbackService findVideoWithReferenceID:self.referenceId parameters:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) {
                 if (video) {
                     [self.playbackController setVideos: @[ video ]];
+                } else {
+                    self.onError(@{});
                 }
             }];
         }

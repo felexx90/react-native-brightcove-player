@@ -327,6 +327,9 @@ public class BrightcovePlayerView extends RelativeLayout implements LifecycleEve
                     playVideo(video);
                 }
             } catch (Exception e) {
+                WritableMap event = Arguments.createMap();
+                ReactContext reactContext = (ReactContext) BrightcovePlayerView.this.getContext();
+                reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(BrightcovePlayerView.this.getId(), BrightcovePlayerManager.EVENT_ERROR, event);
             }
             return;
         }
@@ -334,6 +337,13 @@ public class BrightcovePlayerView extends RelativeLayout implements LifecycleEve
             @Override
             public void onVideo(Video video) {
                 playVideo(video);
+            }
+
+            @Override
+            public void onError(String error) {
+                WritableMap event = Arguments.createMap();
+                ReactContext reactContext = (ReactContext) BrightcovePlayerView.this.getContext();
+                reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(BrightcovePlayerView.this.getId(), BrightcovePlayerManager.EVENT_ERROR, event);
             }
         };
         this.catalog = new Catalog(this.playerVideoView.getEventEmitter(), this.accountId, this.policyKey);
