@@ -20,6 +20,7 @@ export type BrightcovePlayerProps = {
   onPlay?: () => void;
   onPause?: () => void;
   onEnd?: () => void;
+  onError?: () => void;
   onProgress?: ({ currentTime: number }) => void;
   onChangeDuration?: ({ duration: number }) => void;
   onUpdateBufferProgress?: ({ bufferProgress: number }) => void;
