@@ -203,12 +203,20 @@
 }
 
 - (void)playbackController:(id<BCOVPlaybackController>)controller playbackSession:(id<BCOVPlaybackSession>)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent {
-    if (lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventPlaybackBufferEmpty || lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventFail ||
-        lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventError ||
-        lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventTerminate) {
+    if (lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventPlaybackBufferEmpty) {
         _playbackSession = nil;
         return;
     }
+
+    if(lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventFail ||
+       lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventError ||
+       lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventTerminate){
+        _playbackSession = nil;
+        if(self.onError){
+            self.onError(@{})
+        }
+    }
+
     _playbackSession = session;
     if (lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventReady) {
         [self refreshVolume];

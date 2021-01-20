@@ -31,6 +31,7 @@ RCT_EXPORT_VIEW_PROPERTY(playbackRate, NSNumber);
 RCT_EXPORT_VIEW_PROPERTY(onReady, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onPlay, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onPause, RCTDirectEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onError, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onEnd, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onProgress, RCTDirectEventBlock);
 RCT_EXPORT_VIEW_PROPERTY(onChangeDuration, RCTDirectEventBlock);

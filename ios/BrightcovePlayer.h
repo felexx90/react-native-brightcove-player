@@ -35,6 +35,7 @@
 @property (nonatomic, copy) RCTDirectEventBlock onPlay;
 @property (nonatomic, copy) RCTDirectEventBlock onPause;
 @property (nonatomic, copy) RCTDirectEventBlock onEnd;
+@property (nonatomic, copy) RCTDirectEventBlock onError;
 @property (nonatomic, copy) RCTDirectEventBlock onProgress;
 @property (nonatomic, copy) RCTDirectEventBlock onChangeDuration;
 @property (nonatomic, copy) RCTDirectEventBlock onUpdateBufferProgress;

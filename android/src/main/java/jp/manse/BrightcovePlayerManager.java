@@ -23,6 +23,7 @@ public class BrightcovePlayerManager extends SimpleViewManager<BrightcovePlayerV
     public static final String EVENT_PLAY = "play";
     public static final String EVENT_PAUSE = "pause";
     public static final String EVENT_END = "end";
+    public static final String EVENT_ERROR = "error";
     public static final String EVENT_PROGRESS = "progress";
     public static final String EVENT_TOGGLE_ANDROID_FULLSCREEN = "toggle_android_fullscreen";
     public static final String EVENT_CHANGE_DURATION = "change_duration";
@@ -145,6 +146,7 @@ public class BrightcovePlayerManager extends SimpleViewManager<BrightcovePlayerV
         map.put(EVENT_PLAY, (Object) MapBuilder.of("registrationName", "onPlay"));
         map.put(EVENT_PAUSE, (Object) MapBuilder.of("registrationName", "onPause"));
         map.put(EVENT_END, (Object) MapBuilder.of("registrationName", "onEnd"));
+        map.put(EVENT_ERROR, (Object) MapBuilder.of("registrationName", "onError"));
         map.put(EVENT_PROGRESS, (Object) MapBuilder.of("registrationName", "onProgress"));
         map.put(EVENT_CHANGE_DURATION, (Object) MapBuilder.of("registrationName", "onChangeDuration"));
         map.put(EVENT_UPDATE_BUFFER_PROGRESS, (Object) MapBuilder.of("registrationName", "onUpdateBufferProgress"));
