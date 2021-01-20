@@ -217,7 +217,7 @@
        lifecycleEvent.eventType == kBCOVPlaybackSessionLifecycleEventTerminate){
         _playbackSession = nil;
         if(self.onError){
-            self.onError(@{})
+            self.onError(@{});
         }
     }
 
